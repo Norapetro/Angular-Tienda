@@ -2,7 +2,7 @@
   <form [formGroup]="pagosForm" (ngSubmit)="onSubmit()" >
 
 <div class="card" >
-  <h1>Datos de envio</h1>
+  <h1>Registro de Datos</h1>
   <p>
     <mat-form-field class="form-group" appearance="outline">
       <mat-label>Nombre</mat-label>
@@ -43,7 +43,7 @@
     <label>Metodo de pago: </label>
       <mat-radio-group pagos   formControlName="tipoDePago" >
         <mat-radio-button value="Transferencia">Transferencia</mat-radio-button>
-        <mat-radio-button value="Efectivo">Efectivo</mat-radio-button>
+        <mat-radio-button value="Efectivo">ContraEntrega</mat-radio-button>
     </mat-radio-group>
   </p>
 

@@ -30,12 +30,12 @@ export class PagoComponent implements OnInit {
 
   initForm():FormGroup{
      return this.fb.group({
-        nombre:new FormControl ('',[Validators.required,Validators.minLength(3)]),
+        nombre:new FormControl ('',[Validators.required,Validators.minLength(3),Validators.maxLength(30)]),
         direccion:new FormControl ('',[Validators.required]),
         tipoDePago:new FormControl ('Transferencia',[]),
         cedula:new FormControl ('',[Validators.required]),
         telefono:new FormControl ('',[Validators.required]),
-        correo:new FormControl ('',[Validators.required]),
+        correo:new FormControl ('',[Validators.required,Validators.email]),
 
       })
   }
