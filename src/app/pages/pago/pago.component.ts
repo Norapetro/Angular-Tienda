@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-
+import { DatosDeEnvio } from '../../model/DatosDeEnvio.model';
 @Component({
   selector: 'app-pago',
   standalone: true,
@@ -17,8 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule
-  ],
+    MatIconModule],
   templateUrl: './pago.component.html',
   styleUrl: './pago.component.css'
 })
@@ -46,11 +45,8 @@ export class PagoComponent implements OnInit {
   onSubmit() {
 
     if (this.pagosForm?.valid) {
-      console.log('Form data:', this.pagosForm.value);
+      const valForm:DatosDeEnvio=this.pagosForm.value;
+
     }
   }
-  getErrorMessage() {
-
-  }
-
 }

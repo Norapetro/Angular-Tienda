@@ -1,6 +1,6 @@
 import { ProductServices } from '../../api/ProductosServices.service';
 import { CommonModule } from '@angular/common';
-import { Component, Inject, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 
 @Component({

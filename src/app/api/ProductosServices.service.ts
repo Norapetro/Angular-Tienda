@@ -12,4 +12,8 @@ export class ProductServices{
       return this._hhtp.get('https://fakestoreapi.com/products')
     }
 
+    getAllCategorias():Observable<any>{
+      return this._hhtp.get('https://fakestoreapi.com/products/categories')
+    }
+
   }
