@@ -10,8 +10,7 @@
   <a [routerLink]="['/home']" mat-button>Home</a>
   <a [routerLink]="['/productos']" mat-button>Productos</a>
   <a [routerLink]="['/pago']" mat-button>pago</a>
-  <button mat-icon-button class="example-icon" aria-label="Agregar al carrito">
-  <button [routerLink]="['/carrito']" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"></button>
+  <button mat-icon-button class="example-icon" aria-label="Agregar al carrito" [routerLink]="['/carrito']">
     <mat-icon>add_shopping_cart</mat-icon>
   </button>
 </mat-toolbar>
