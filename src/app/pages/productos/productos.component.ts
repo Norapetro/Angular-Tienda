@@ -1,6 +1,8 @@
 import { ProductServices } from '../../api/ProductosServices.service';
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { Producto } from '../../model/Producto.model';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,7 +15,7 @@ import { Component, inject } from '@angular/core';
 export class ProductosComponent {
 
   readonly productsSvs = inject(ProductServices);
-  products$ = this.productsSvs.getAllProduct();
+  products: Observable<Producto[]> = this.productsSvs.getAllProduct();
 
 
 }

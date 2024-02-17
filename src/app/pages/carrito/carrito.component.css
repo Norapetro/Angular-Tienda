@@ -1,0 +1,12 @@
+.carrito-card {
+  max-width: 1000px; /* Ancho máximo de la card */
+  margin: 0 auto; /* Centrar la card en el contenedor */
+}
+
+.mat-table {
+  width: 100%;
+}
+
+button {
+  margin-right: 8px; /* Espaciado entre el botón y el contenido de la celda */
+}

@@ -1,0 +1,33 @@
+.mat-elevation-z2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 16px;
+}
+
+.producto-card {
+  width: 300px;
+  margin: 16px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.producto-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.producto-info {
+  margin-top: 12px;
+}
+
+.producto-price {
+  font-weight: bold;
+}
+
+.producto-rating {
+  color: #4CAF50; /* Green color for rating */
+}
