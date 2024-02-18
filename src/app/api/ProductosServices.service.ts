@@ -6,14 +6,14 @@ import { Observable } from "rxjs";
 export class ProductServices{
 
 
-    private readonly _hhtp = inject(HttpClient);
+    private readonly _http = inject(HttpClient);
 
     getAllProduct():Observable<any>{
-      return this._hhtp.get('https://fakestoreapi.com/products')
+      return this._http.get('https://fakestoreapi.com/products')
     }
 
     getAllCategorias():Observable<any>{
-      return this._hhtp.get('https://fakestoreapi.com/products/categories')
+      return this._http.get('https://fakestoreapi.com/products/categories')
     }
 
   }
