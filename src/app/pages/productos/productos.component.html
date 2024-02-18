@@ -1,28 +1,23 @@
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-  </ng-container>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+<div class="container">
+  <h1>This is our products:</h1>
+  <table class="table table-dark table-striped">
+      <thead>
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product</th>
+              <th scope="col">Price</th>
+              <th scope="col">Description</th>
+              <th scope="col">Details</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>mdo</td>
+          <td><button type="button" class="btn btn-outline-primary" >Details</button></td>
+        </tr>
+      </tbody>
+  </table>
+</div>
