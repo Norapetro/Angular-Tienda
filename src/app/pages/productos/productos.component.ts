@@ -1,9 +1,8 @@
-import { ProductServices } from '../../api/ProductosServices.service';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductServices } from '../../api/ProductosServices.service'; // Asegúrate de importar ProductServices
 import { Producto } from '../../model/Producto.model';
-import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-productos',
@@ -12,10 +11,30 @@ import { Observable } from 'rxjs';
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
-export class ProductosComponent {
+export class ProductosComponent implements OnInit {
 
-  readonly productsSvs = inject(ProductServices);
-  products: Observable<Producto[]> = this.productsSvs.getAllProduct();
+  productList: Producto[] = [];
+  private _Http = inject(ProductServices);
+  private _router = inject(Router);
+  readonly productsSvs = inject(ProductServices); // Agrega esta línea
 
+  ngOnInit(): void {
+    this._Http.getAllProduct().subscribe((data: Producto[]) => {
+      console.log(data);
+      this.productList = data;
+    });
+  }
 
+  navegate(id: number): void {
+    this._router.navigate(['/products', id]);
+  }
+
+  // Agrega cualquier otro método o lógica que necesites aquí
+  // ...
+
+  // También puedes usar this.productsSvs para obtener los productos
+  // Ejemplo:
+  // this.productsSvs.getAllProduct().subscribe((productos: Producto[]) => {
+  //   this.products = productos;
+  // });
 }
