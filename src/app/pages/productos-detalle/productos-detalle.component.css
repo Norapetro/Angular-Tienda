@@ -1,37 +1,54 @@
+/* Estilos para el contenedor */
 .container {
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilos para el mensaje de carga */
+.container h5 {
+  font-size: 24px;
+}
+
+/* Estilos para la tarjeta */
+.card {
+  width: 18rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para la imagen de la tarjeta */
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* Estilos para el cuerpo de la tarjeta */
+.card-body {
   padding: 20px;
 }
 
-h1 {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
+/* Estilos para el título de la tarjeta */
+.card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 2px solid #000;
+/* Estilos para el precio de la tarjeta */
+.card-body h4 {
+  color: green;
 }
 
-.table th,
-.table td {
-  padding: 8px;
-  border: 1px solid #000;
-}
-
-.table th {
-  background-color: #333;
-  color: #fff;
-  text-align: left;
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: #ddd;
-}
-
-.table tbody tr:hover {
-  background-color: #ccc;
+/* Estilos para la descripción de la tarjeta */
+.card-text {
+  font-size: 16px;
 }
