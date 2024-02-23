@@ -8,36 +8,37 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { PagoComponent } from './pages/pago/pago.component';
 
 export const routes: Routes = [
-    {
-        path: 'home',
-        component: HomeComponent
-    },
-    {
-        path: 'carrito',
-        component: CarritoComponent
-    },
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'productos',
-        component: ProductosComponent
-    },
-    {
-        path: 'productos-detalle',
-        component: ProductosDetalleComponent
-    },
-    {
-        path: 'registro',
-        component: RegistroComponent
-    },
-    {
-      path: 'pago',
-      component: PagoComponent
-    },
-    {
-        path: '**',
-        component: HomeComponent
-    }
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'carrito',
+    component: CarritoComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'productos',
+    component: ProductosComponent
+  },
+  {
+    path: 'productos/:id',
+    component: ProductosDetalleComponent
+  },
+  // { path: '', redirectTo: '/productos', pathMatch: 'full' },
+  {
+    path: 'registro',
+    component: RegistroComponent
+  },
+  {
+    path: 'pago',
+    component: PagoComponent
+  },
+  {
+    path: '**',
+    component: HomeComponent
+  }
 ];
