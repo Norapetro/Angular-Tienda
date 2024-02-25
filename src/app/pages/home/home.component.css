@@ -1,22 +1,32 @@
+/* Estilos para el contenedor */
 .container {
   text-align: center;
   padding: 20px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
 }
 
-.container h1 {
-  font-size: 24px;
+/* Estilos para el encabezado h1 */
+h1 {
+  font-size: 36px;
   color: #333;
 }
 
-.container h2 {
-  font-size: 18px;
+/* Estilos para el encabezado h2 */
+h2 {
+  font-size: 24px;
   color: #666;
 }
 
-.container img {
-  max-width: 75%;
-  height: 75;
-  margin-top: 20px;
+/* Estilos para el párrafo */
+p {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la imagen */
+img {
+  max-width: 45%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

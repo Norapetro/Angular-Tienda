@@ -7,7 +7,7 @@ import { ResponsePagos } from "../model/response/ResponsePagos.model";
 @Injectable({providedIn: 'root'})
 export class PagoServices{
 
-    private api= 'xxxxxxxxxx';
+    private api= 'https://fakestoreapi.com/products';
     private readonly _hhtp = inject(HttpClient);
 
     enviarOrden(ordenDeCompra:OrdenDeCompra):Observable<ResponsePagos>{

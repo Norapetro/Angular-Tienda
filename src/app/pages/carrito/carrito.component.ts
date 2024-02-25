@@ -25,9 +25,25 @@ export class CarritoComponent {
     ]
   };
 
+  // agregarAlCarrito(producto: ProductoCarrito) {
+  //   // Agregar el producto al carrito
+  //   this.carritoDeCompras.productoCarrito.push(producto);
+  //   // Actualizar el costo total del carrito
+  //   this.carritoDeCompras.CostoTotal += (producto.Costo * producto.cantidad);
+  //   console.log(`Producto agregado al carrito: ${producto.nombreProducto}`);
+  //   console.log('Carrito actual:', this.carritoDeCompras);
+  // }
+
   eliminarProducto(id: number) {
-    // Aquí deberías implementar la lógica para eliminar el producto con el ID proporcionado
-    // Puedes emitir un evento, llamar a un servicio, etc.
-    console.log(`Eliminar producto con ID: ${id}`);
+    // Encuentra el índice del producto con el ID proporcionado
+    const index = this.carritoDeCompras.productoCarrito.findIndex(producto => producto.id === id);
+    // Si se encuentra el producto
+    if (index !== -1) {
+      // Elimina el producto del array
+      this.carritoDeCompras.productoCarrito.splice(index, 1);
+      console.log(`Producto eliminado con ID: ${id}`);
+    } else {
+      console.log(`No se encontró ningún producto con ID: ${id}`);
+    }
   }
 }
