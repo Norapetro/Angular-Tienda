@@ -3,6 +3,8 @@ import { ProductServices } from './../../api/ProductosServices.service';
 import { IProduct } from './../../model/Producto.model';
 import { ActivatedRoute, } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CarritoComponent } from '../carrito/carrito.component';
+import { CarritoServices } from '../../api/CarritoServices.service';
 
 @Component({
   selector: 'app-productos-detalle',
@@ -18,6 +20,7 @@ export class ProductosDetalleComponent implements OnInit {
 
   private _route = inject(ActivatedRoute);
   private _apiService = inject(ProductServices);
+  private carritoService = inject(CarritoServices);
 
   ngOnInit(): void {
     this._route.params.subscribe(params => {
@@ -27,6 +30,10 @@ export class ProductosDetalleComponent implements OnInit {
       });
     }
     )
+  }
+
+  addToCarrito() {
+    this.carritoService.addProduct(Number(this.product?.id), String(this.product?.title), String(this.product?.price));
   }
 
 }

@@ -1,15 +1,17 @@
+import { IProduct } from './../../model/Producto.model';
 import { Carrito, ProductoCarrito } from './../../model/Carrito.model';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatCard } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { CarritoServices } from '../../api/CarritoServices.service';
 
 
 
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [MatTableModule,MatIcon,MatCard],
+  imports: [MatTableModule, MatIcon, MatCard],
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css'
 })
@@ -17,12 +19,10 @@ import {MatTableModule} from '@angular/material/table';
 
 
 export class CarritoComponent {
+  private service = inject(CarritoServices);
   carritoDeCompras: Carrito = {
     CostoTotal: 100,
-    productoCarrito: [
-      { id: 1, nombreProducto: 'Producto 1', Costo: 50, cantidad: 2 },
-      { id: 2, nombreProducto: 'Producto 2', Costo: 30, cantidad: 1 }
-    ]
+    productoCarrito: this.service.getCarrito()
   };
 
   // agregarAlCarrito(producto: ProductoCarrito) {
@@ -45,5 +45,9 @@ export class CarritoComponent {
     } else {
       console.log(`No se encontró ningún producto con ID: ${id}`);
     }
+  }
+
+  getProductsCarrito(): ProductoCarrito[] {
+    return this.carritoDeCompras.productoCarrito;
   }
 }
