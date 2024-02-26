@@ -21,9 +21,21 @@ import { CarritoServices } from '../../api/CarritoServices.service';
 export class CarritoComponent {
   private service = inject(CarritoServices);
   carritoDeCompras: Carrito = {
-    CostoTotal: 100,
+    CostoTotal: 0,
     productoCarrito: this.service.getCarrito()
   };
+
+  constructor() {
+    // Calcular el costo total al inicializar el componente
+    this.calcularCostoTotal();
+  }
+
+  calcularCostoTotal() {
+    // Sumar el costo de cada producto en el carrito
+    this.carritoDeCompras.CostoTotal = this.carritoDeCompras.productoCarrito.reduce((total, producto) => {
+      return total + producto.Costo * producto.cantidad;
+    }, 0);
+  }
 
   eliminarProducto(id: number) {
     // Encuentra el índice del producto con el ID proporcionado
