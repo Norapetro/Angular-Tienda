@@ -25,15 +25,6 @@ export class CarritoComponent {
     productoCarrito: this.service.getCarrito()
   };
 
-  // agregarAlCarrito(producto: ProductoCarrito) {
-  //   // Agregar el producto al carrito
-  //   this.carritoDeCompras.productoCarrito.push(producto);
-  //   // Actualizar el costo total del carrito
-  //   this.carritoDeCompras.CostoTotal += (producto.Costo * producto.cantidad);
-  //   console.log(`Producto agregado al carrito: ${producto.nombreProducto}`);
-  //   console.log('Carrito actual:', this.carritoDeCompras);
-  // }
-
   eliminarProducto(id: number) {
     // Encuentra el índice del producto con el ID proporcionado
     const index = this.carritoDeCompras.productoCarrito.findIndex(producto => producto.id === id);
