@@ -1,9 +1,9 @@
 import { IProduct } from './../../model/Producto.model';
 import { Carrito, ProductoCarrito } from './../../model/Carrito.model';
-import { Component, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { MatCard } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
-import { MatTableModule } from '@angular/material/table';
+import { MatTable, MatTableModule } from '@angular/material/table';
 import { CarritoServices } from '../../api/CarritoServices.service';
 
 
@@ -11,7 +11,7 @@ import { CarritoServices } from '../../api/CarritoServices.service';
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [MatTableModule, MatIcon, MatCard],
+  imports: [MatTableModule, MatIcon, MatCard, MatTable],
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css'
 })
@@ -19,6 +19,10 @@ import { CarritoServices } from '../../api/CarritoServices.service';
 
 
 export class CarritoComponent {
+
+  @ViewChild(MatTable)
+  table!: MatTable<any>;
+
   private service = inject(CarritoServices);
   carritoDeCompras: Carrito = {
     CostoTotal: 0,
@@ -42,11 +46,15 @@ export class CarritoComponent {
     const index = this.carritoDeCompras.productoCarrito.findIndex(producto => producto.id === id);
     // Si se encuentra el producto
     if (index !== -1) {
+      // Restar el costo del producto eliminado del costo total
+      this.carritoDeCompras.CostoTotal -= this.carritoDeCompras.productoCarrito[index].Costo * this.carritoDeCompras.productoCarrito[index].cantidad;
+
       // Elimina el producto del array
       this.carritoDeCompras.productoCarrito.splice(index, 1);
-      console.log(`Producto eliminado con ID: ${id}`);
-    } else {
-      console.log(`No se encontró ningún producto con ID: ${id}`);
+      // console.log(`Producto eliminado con ID: ${id}`);
+
+      // Actualiza la tabla después de eliminar el producto
+      this.table.renderRows();
     }
   }
 
